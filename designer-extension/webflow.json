@@ -1,0 +1,7 @@
+{
+  "name": "seo-audit-webflow",
+  "displayName": "SEO Audit",
+  "size": "large",
+  "entrypoint": "index.html",
+  "permissions": ["site.read", "pages.read", "elements.read", "cms.read", "cms.write"]
+}

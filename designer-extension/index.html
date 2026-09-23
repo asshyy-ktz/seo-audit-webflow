@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SEO Audit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./panel.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div>
+        <h1>SEO Audit</h1>
+        <p class="muted" id="last-run">No audit yet.</p>
+      </div>
+      <button id="run-audit" class="btn primary">Run audit</button>
+    </header>
+
+    <section class="card summary">
+      <div class="score-block">
+        <div id="score" class="score">--</div>
+        <div id="score-delta" class="muted"></div>
+      </div>
+      <div class="counts">
+        <span class="chip critical"><b id="count-critical">0</b> critical</span>
+        <span class="chip warning"><b id="count-warning">0</b> warning</span>
+        <span class="chip info"><b id="count-info">0</b> info</span>
+      </div>
+      <div class="trend">
+        <canvas id="sparkline" height="64"></canvas>
+        <div id="spark-tip" class="muted">Score trend across audit runs</div>
+      </div>
+    </section>
+
+    <div id="status" class="status" hidden></div>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="open">Findings</button>
+      <button class="tab" data-tab="ignored">Ignored</button>
+      <button class="tab" data-tab="resolved">Resolved</button>
+      <button class="tab" data-tab="settings">Settings</button>
+      <select id="severity-filter" title="Filter by severity">
+        <option value="">All severities</option>
+        <option value="critical">Critical</option>
+        <option value="warning">Warning</option>
+        <option value="info">Info</option>
+      </select>
+    </nav>
+
+    <section id="findings"></section>
+
+    <section id="settings" class="card" hidden>
+      <h2>Settings</h2>
+      <label class="field">Thin-content threshold (words in rich-text fields)
+        <input type="number" id="thin-words" min="50" max="5000" step="10" />
+      </label>
+      <button id="save-settings" class="btn">Save</button>
+      <p class="muted">Changes apply on the next audit run.</p>
+    </section>
+  </div>
+  <script src="./panel.js"></script>
+</body>
+</html>
